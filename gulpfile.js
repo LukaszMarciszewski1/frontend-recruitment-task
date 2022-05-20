@@ -7,7 +7,8 @@ const uglify = require('gulp-uglify')
 const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
-var replace = require('gulp-replace')
+const replace = require('gulp-replace')
+const browsersync = require('browser-sync').create()
 
 // File paths
 const files = {
@@ -31,15 +32,31 @@ function jsTask() {
     .pipe(dest('dist'))
 }
 
-var cbString = new Date().getTime()
+const cbString = new Date().getTime()
 function cacheBustTask() {
   return src(['index.html'])
     .pipe(replace(/cb=\d+/g, 'cb=' + cbString))
     .pipe(dest('.'))
 }
 
+// Browsersync Tasks
+function browsersyncServe(cb){
+    browsersync.init({
+      server: {
+        baseDir: './'
+      }
+    });
+    cb()
+  }
+  
+  function browsersyncReload(cb){
+    browsersync.reload()
+    cb()
+  }
+
 function watchTask() {
-  watch([files.scssPath, files.jsPath], parallel(scssTask, jsTask))
+  watch('./*.html', browsersyncReload)
+  watch([files.scssPath, files.jsPath], parallel(scssTask, jsTask, browsersyncReload))
 }
 
-exports.default = series(parallel(scssTask, jsTask), cacheBustTask, watchTask)
+exports.default = series(parallel(scssTask, jsTask), cacheBustTask, watchTask, browsersyncServe)
