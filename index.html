@@ -40,16 +40,27 @@
             and protection for modern and legacy infrastructures and SaaS
             platforms, managed via a single app with no hardware required.
           </p>
-          <button class="task__btn--open-modal">button</button>
+          <button class="task__btn--open-popup">button</button>
         </div>
         <div class="popup">
-          <div class="popup__content">
-            <h2 class="popup__title">Alert!</h2>
-            <p class="popup__alert--info">You have clicked <span class="popup__number">X</span> <strong>times</strong> to related button.</p>
-            <button class="popup__btn--close">X</button>
-          </div>
+            <div class="popup__content">
+              <h2 class="popup__title">Alert!</h2>
+              <p class="popup__alert--info">
+                You have clicked <span class="popup__number">0</span>
+                <strong>times</strong> to related button.
+              </p>
+              <button class="popup__btn--close-popup">X</button>
+              <div class="loading"></div>
+              <div class="popup__table-container">
+                <table>
+                  <thead class="table__head"></thead>
+                  <tbody class="table__body"></tbody>
+                </table>
+              </div>
+            </div>
         </div>
       </section>
     </main>
+    <script src="dist/all.js"></script>
   </body>
 </html>
