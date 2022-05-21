@@ -1,0 +1,153 @@
+$bg: #e5e5e5;
+$dark: #121212;
+$light: #ffffff;
+$bg-btn: #e4c1ae;
+$bg-popup: #1212127b;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: $bg;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+h1,h2,p{
+  color: $dark;
+}
+
+h1, h2 {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+p {
+  font-weight: 300;
+  line-height: 24px;
+  font-size: 14px;
+}
+
+button {
+  width: min-content;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+//task section
+.task {
+  max-width: 650px;
+  margin-top: 96px;
+  &__picture {
+    max-width: 600px;
+    img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+  &__content {
+    padding: 20px 0;
+  }
+  &__description {
+    padding: 16px 0 24px;
+  }
+  &__btn--open-modal {
+    padding: 16px 40px;
+    background-color: $bg-btn;
+    border-radius: 32px;
+    color: $light;
+    &:hover {
+      background-color: darken($bg-btn, 5%);
+    }
+  }
+}
+
+//popup
+.popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: $bg-popup;
+  &__content {
+    position: relative;
+    max-width: 920px;
+    width: 800px;
+    background-color: $light;
+    padding: 40px;
+  }
+  &__alert--info {
+    padding: 16px 0 24px;
+  }
+  &__number {
+   font-weight: 700;
+   
+  }
+  &__btn--close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 5px;
+    background-color: transparent;
+    &:hover{
+      background-color: darken($light, 5%);
+    }
+  }
+}
+
+//task section media queries
+@media screen and (min-width: 500px) {
+  main {
+    padding: 0 32px;
+  }
+  .task {
+    &__description {
+      padding: 20px 0 28px;
+    }
+  }
+  h1, h2 {
+    font-size: 36px;
+  }
+  p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .task {
+    max-width: 1440px;
+    gap: 5%;
+    display: flex;
+    justify-content: center;
+    &__content {
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  h1, h2 {
+    font-size: 42px;
+  }
+}
+
