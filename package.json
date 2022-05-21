@@ -4,25 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
-<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1"
-=======
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "index.html"
->>>>>>> additional-task
-=======
-    "test": "echo \"Error: no test specified\" && exit 1"
->>>>>>> additional-task
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^9.6.0",
-<<<<<<< HEAD
-=======
     "browser-sync": "^2.27.10",
->>>>>>> additional-task
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0",
@@ -31,18 +19,6 @@
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "gulp-uglify": "^3.0.2"
-=======
-    "gulp-uglify": "^3.0.2",
-    "sass": "^1.52.0"
-  },
-  "dependencies": {
-    "node-sass": "^7.0.1"
->>>>>>> additional-task
-=======
-    "gulp-uglify": "^3.0.2"
->>>>>>> additional-task
   }
 }
