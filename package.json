@@ -5,10 +5,14 @@
   "main": "index.js",
   "scripts": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1"
 =======
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "index.html"
+>>>>>>> additional-task
+=======
+    "test": "echo \"Error: no test specified\" && exit 1"
 >>>>>>> additional-task
   },
   "author": "",
@@ -28,6 +32,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "gulp-uglify": "^3.0.2"
 =======
     "gulp-uglify": "^3.0.2",
@@ -35,6 +40,9 @@
   },
   "dependencies": {
     "node-sass": "^7.0.1"
+>>>>>>> additional-task
+=======
+    "gulp-uglify": "^3.0.2"
 >>>>>>> additional-task
   }
 }

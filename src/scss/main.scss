@@ -1,6 +1,7 @@
 $bg: #e5e5e5;
 $dark: #121212;
 $light: #ffffff;
+$grey: #a6a6a6;
 $bg-btn: #e4c1ae;
 $bg-popup: #1212127b;
 
@@ -23,11 +24,14 @@ main {
   padding: 0 16px;
 }
 
-h1,h2,p{
+h1,
+h2,
+p {
   color: $dark;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: 700;
   font-size: 32px;
 }
@@ -48,17 +52,17 @@ button {
   transition: 0.2s;
 }
 
-//task section
+img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .task {
   max-width: 650px;
   margin-top: 96px;
   &__picture {
     max-width: 600px;
-    img {
-      width: 100%;
-      object-fit: cover;
-      display: block;
-    }
   }
   &__content {
     padding: 20px 0;
@@ -66,7 +70,7 @@ button {
   &__description {
     padding: 16px 0 24px;
   }
-  &__btn--open-modal {
+  &__btn--open-popup {
     padding: 16px 40px;
     background-color: $bg-btn;
     border-radius: 32px;
@@ -77,41 +81,99 @@ button {
   }
 }
 
-//popup
 .popup {
   position: fixed;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   padding: 20px;
   background-color: $bg-popup;
   &__content {
+    width: 1100px;
+    max-width: 100%;
     position: relative;
-    max-width: 920px;
-    width: 800px;
     background-color: $light;
-    padding: 40px;
+    padding: 16px;
   }
   &__alert--info {
     padding: 16px 0 24px;
   }
   &__number {
-   font-weight: 700;
-   
+    font-weight: 700;
   }
-  &__btn--close {
+  &__btn--close-popup {
     position: absolute;
     right: 20px;
     top: 20px;
     padding: 5px;
+    font-size: 20px;
     background-color: transparent;
-    &:hover{
+    &:hover {
       background-color: darken($light, 5%);
     }
+  }
+  &__table-container {
+    width: 100%;
+    box-shadow: 0px 0px 10px -5px rgba(112, 112, 113, 1);
+    max-height: 400px;
+    overflow: auto;
+    table {
+      padding: 5px;
+      border-collapse: collapse;
+      min-width: 100%;
+      font-size: 14px;
+      thead {
+        background-color: $grey;
+        color: $light;
+        position: sticky;
+        top: 0px;
+      }
+      th,
+      td {
+        padding: 8px 12px;
+        text-align: center;
+      }
+
+      td {
+        border: 1px solid $dark;
+      }
+    }
+  }
+}
+
+.popup.active {
+  display: flex;
+}
+
+.loading {
+  display: none;
+  justify-content: center;
+  &::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    border: 10px solid darken($light, 5%);
+    border-top-color: $grey;
+    border-radius: 50%;
+    transform: rotate(0.16turn);
+    animation: loading 1s linear infinite;
+  }
+}
+
+.loading.active{
+  display: flex;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -125,7 +187,8 @@ button {
       padding: 20px 0 28px;
     }
   }
-  h1, h2 {
+  h1,
+  h2 {
     font-size: 36px;
   }
   p {
@@ -146,8 +209,13 @@ button {
       justify-content: center;
     }
   }
-  h1, h2 {
+  .popup{
+    &__content {
+      padding: 40px;
+    }
+  }
+  h1,
+  h2 {
     font-size: 42px;
   }
 }
-

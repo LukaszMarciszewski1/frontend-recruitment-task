@@ -47,8 +47,32 @@ function watchTask(){
         parallel(scssTask, jsTask));    
 }
 
+<<<<<<< HEAD
 exports.default = series(
     parallel(scssTask, jsTask), 
     cacheBustTask,
     watchTask
 );
+=======
+// Browsersync Tasks
+function browsersyncServe(cb){
+    browsersync.init({
+      server: {
+        baseDir: '.'
+      }
+    });
+    cb()
+  }
+  
+  function browsersyncReload(cb){
+    browsersync.reload()
+    cb()
+  }
+
+function watchTask() {
+  watch('./*.html', browsersyncReload)
+  watch([files.scssPath, files.jsPath], parallel(scssTask, jsTask, browsersyncReload))
+}
+
+exports.default = series(parallel(scssTask, jsTask), cacheBustTask, watchTask, browsersyncServe)
+>>>>>>> additional-task
