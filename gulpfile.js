@@ -18,7 +18,7 @@ const files = {
 function scssTask(){    
     return src(files.scssPath)
         .pipe(sourcemaps.init()) // initialize sourcemaps first
-        .pipe(sass([])) // compile SCSS to CSS
+        .pipe(sass()) // compile SCSS to CSS
         .pipe(postcss([ autoprefixer(), cssnano() ])) // PostCSS plugins
         .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
         .pipe(dest('dist')
@@ -47,13 +47,12 @@ function watchTask(){
         parallel(scssTask, jsTask));    
 }
 
-<<<<<<< HEAD
 exports.default = series(
     parallel(scssTask, jsTask), 
     cacheBustTask,
     watchTask
 );
-=======
+
 // Browsersync Tasks
 function browsersyncServe(cb){
     browsersync.init({
@@ -75,4 +74,3 @@ function watchTask() {
 }
 
 exports.default = series(parallel(scssTask, jsTask), cacheBustTask, watchTask, browsersyncServe)
->>>>>>> additional-task
