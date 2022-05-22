@@ -1,7 +1,7 @@
 const { src, dest, watch, series, parallel } = require('gulp')
 
 const sourcemaps = require('gulp-sourcemaps')
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')
 const concat = require('gulp-concat')
 const uglify = require('gulp-uglify')
 const postcss = require('gulp-postcss')
@@ -40,23 +40,31 @@ function cacheBustTask() {
 }
 
 // Browsersync Tasks
-function browsersyncServe(cb){
-    browsersync.init({
-      server: {
-        baseDir: '.'
-      }
-    });
-    cb()
-  }
-  
-  function browsersyncReload(cb){
-    browsersync.reload()
-    cb()
-  }
+function browsersyncServe(cb) {
+  browsersync.init({
+    server: {
+      baseDir: '.',
+    },
+  })
+  cb()
+}
+
+function browsersyncReload(cb) {
+  browsersync.reload()
+  cb()
+}
 
 function watchTask() {
   watch('./*.html', browsersyncReload)
-  watch([files.scssPath, files.jsPath], parallel(scssTask, jsTask, browsersyncReload))
+  watch(
+    [files.scssPath, files.jsPath],
+    parallel(scssTask, jsTask, browsersyncReload)
+  )
 }
 
-exports.default = series(parallel(scssTask, jsTask), cacheBustTask, watchTask, browsersyncServe)
+exports.default = series(
+  parallel(scssTask, jsTask),
+  cacheBustTask,
+  watchTask,
+  browsersyncServe
+)

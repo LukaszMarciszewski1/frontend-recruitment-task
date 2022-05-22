@@ -21,11 +21,15 @@
       <section class="task">
         <picture class="task__picture">
           <source
-            srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_16_9,c_fill,g_auto__c_scale,w_720.jpg"
+            srcset="
+              images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_16_9,c_fill,g_auto__c_scale,w_720.jpg
+            "
             media="(min-width: 1000px)"
           />
           <source
-            srcset="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_16_9,c_fill,g_auto__c_scale,w_596.jpg"
+            srcset="
+              images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_16_9,c_fill,g_auto__c_scale,w_596.jpg
+            "
             media="(min-width: 500px)"
           />
           <img
@@ -40,24 +44,26 @@
             and protection for modern and legacy infrastructures and SaaS
             platforms, managed via a single app with no hardware required.
           </p>
-          <button class="task__btn--open-popup">button</button>
+          <button class="task__btn-open-popup">button</button>
         </div>
         <div class="popup">
-            <div class="popup__content">
-              <h2 class="popup__title">Alert!</h2>
-              <p class="popup__alert--info">
-                You have clicked <span class="popup__number">0</span>
-                <strong>times</strong> to related button.
-              </p>
-              <button class="popup__btn--close-popup">X</button>
-              <div class="loading"></div>
-              <div class="popup__table-container">
-                <table>
-                  <thead class="table__head"></thead>
-                  <tbody class="table__body"></tbody>
-                </table>
+          <div class="popup__content">
+            <h2 class="popup__title">Alert!</h2>
+              <div class="popup__alert-info">
+                <p>You have clicked <span class="popup__number">0</span>
+                <strong>times</strong>
+                </p>
+                <button class="popup__btn-reset">Reset</button>
               </div>
+            <button class="popup__btn-close-popup">X</button>
+            <div class="loading"></div>
+            <div class="popup__table-container">
+              <table>
+                <thead class="table__head"></thead>
+                <tbody class="table__body"></tbody>
+              </table>
             </div>
+          </div>
         </div>
       </section>
     </main>
