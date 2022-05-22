@@ -42,17 +42,6 @@ function cacheBustTask(){
         .pipe(dest('.'));
 }
 
-function watchTask(){
-    watch([files.scssPath, files.jsPath], 
-        parallel(scssTask, jsTask));    
-}
-
-exports.default = series(
-    parallel(scssTask, jsTask), 
-    cacheBustTask,
-    watchTask
-);
-
 // Browsersync Tasks
 function browsersyncServe(cb){
     browsersync.init({
